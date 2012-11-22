@@ -1,0 +1,11 @@
+BODY{margin:0px;}
+BODY,TH,TD {FONT-SIZE: 9pt}
+table.form{background-color:#b5d6e6;border:0px;};
+table.form thead tr{height:22px;}
+table.form tbody tr{height:28px;}
+table.form tfoot tr{height:28px;}
+table.form thead tr td{background:url(../images/bg.gif);text-align:center;}
+table.form tbody tr td{background-color:#FFFFFF;padding-left:5px;}
+table.form tfoot tr td{background-color:#EFF7FF;text-align:center;}
+input{width:expression(this.type=="text"?"155px":"style");}
+select{width:155px;}

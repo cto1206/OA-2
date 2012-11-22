@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="true">
+
+	<!-- 使用annotation 自动注册bean,并保证@Required,@Autowired的属性被注入 -->
+	<context:component-scan base-package="com.hanbang.oa" />
+		
+	
+	<bean id="defaultLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler" lazy-init="true"/>
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="lobHandler" ref="defaultLobHandler"/>
+		<property name="namingStrategy">
+			<bean class="org.hibernate.cfg.ImprovedNamingStrategy" />
+		</property>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath*:jbpm.repository.hbm.xml</value>
+                <value>classpath*:jbpm.execution.hbm.xml</value>
+                <value>classpath*:jbpm.history.hbm.xml</value>
+                <value>classpath*:jbpm.task.hbm.xml</value>
+                <value>classpath*:jbpm.identity.hbm.xml</value>
+            </list>
+        </property>					
+		<property name="hibernateProperties">
+			<props><!--org.hibernate.dialect.MySQLDialect-->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.proxool.xml">proxool.xml</prop>
+				<prop key="hibernate.proxool.pool_alias">HBDATA_OA</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+				<prop key="hibernate.generate_statistics">true</prop>
+                <prop key="hibernate.cache.use_query_cache">true</prop>
+                <prop key="hibernate.cache.use_second_level_cache">true</prop>
+                <prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+			    <prop key="hibernate.query.substitutions">true 1, false 0, yes 'Y', no 'N'</prop>
+                <prop key="hibernate.bytecode.use_reflection_optimizer">true</prop>
+                <prop key="hibernate.use_outer_join">true</prop>
+                <prop key="hibernate.prepare_sql">true</prop>
+                <prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop> 
+                <prop key="hibernate.jdbc.batch_size">25</prop>
+				<prop key="hibernate.connection.useUnicode">true</prop>
+				<prop key="hibernate.connection.characterEncoding">utf-8</prop>				
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.ProxoolConnectionProvider</prop>
+				<prop key="hibernate.connection.release_mode">auto</prop>                       		
+			</props>
+		</property>
+		<property name="packagesToScan" value="com.hanbang.oa.entity.*" />
+	</bean>
+	
+	<!-- 事务管理器配置,单数据源事务 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 使用annotation定义事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+    	
+	<!-- 添加processEngine -->
+	<bean id="jbpmConfiguration" class="org.jbpm.pvm.internal.cfg.SpringConfiguration">
+		<constructor-arg value="jbpm/jbpm.cfg.xml" />
+	</bean>
+      	
+	<!-- jBPM服务也可以定义在Spring applicationContext中 -->
+	<bean id="processEngine" factory-bean="jbpmConfiguration" factory-method="buildProcessEngine"/>
+	<bean id="repositoryService" factory-bean="processEngine" factory-method="getRepositoryService"/>
+	<bean id="executionService" factory-bean="processEngine" factory-method="getExecutionService"/>
+    <bean id="historyService" factory-bean="processEngine" factory-method="getHistoryService"/>
+    <bean id="managementService" factory-bean="processEngine" factory-method="getManagementService"/>	
+	<bean id="taskService" factory-bean="processEngine" factory-method="getTaskService"/>
+	<bean id="identityService" factory-bean="processEngine" factory-method="getIdentityService"/>	
+</beans>

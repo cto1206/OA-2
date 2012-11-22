@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+
+	<!-- 对默认拦截器的引入 -->
+	<include file="struts-default.xml" />
+
+	<package name="web-base" extends="struts-default">
+		<interceptors>
+			<interceptor name="authority" class="com.hanbang.oa.interceptor.AuthorityInterceptor"/>
+			
+			<!--定义一个包含权限检查的拦截器栈-->
+			<interceptor-stack name="oaStack">
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="authority"/>		
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="oaStack"/>
+		
+		<global-results>
+		    <!-- 下面定义的结果对所有的Action都有效 -->
+		    <result name="login">/relogin.jsp</result>
+		    <result name="exception">/errors/exception.jsp</result>
+		    <result name="error">/errors/error.jsp</result>
+		    <result name="invalid.token">/errors/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+		    <!-- 当系统抛出Exception异常时，转入名为exception的结果。 -->
+		    <exception-mapping exception="java.lang.Exception" result="exception" />
+		</global-exception-mappings>
+	</package>
+
+	<!-- 导入OA模块 -->
+	<include file="struts-oa.xml" />
+</struts>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="web-oa" extends="web-base">
+		<!--主界面显示的信息-->
+
+		<action name="indexMessage_*" class="com.hanbang.core.action.IndexMessageAction" method="{1}">
+			<result name="index">/content/tab.jsp</result>
+		</action>
+
+		 <!-- 文件下载组件 -->
+		<action name="fileDown_*" class="com.hanbang.oa.action.FileDownloadAction" method="{1}">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">downFile</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+
+		<!-- 登录管理 -->
+		<action name="index_*" class="com.hanbang.oa.action.IndexAction" method="{1}">
+			<result name="success" type="redirect">/main.jsp</result>
+			<result name="succ">/apps/sys/modify_success.jsp</result>
+			<result name="succ1">/apps/sys/modify_success.jsp</result>
+			<result name="input">/apps/sys/edit_password.jsp</result>
+		</action>
+		
+		<!-- 用户信息管理 -->
+		<action name="user_*" class="com.hanbang.oa.action.UserAction" method="{1}">
+			<result name="listView">/apps/user/user_list.jsp</result>
+			<result name="formView">/apps/user/user_form.jsp</result>
+			<result name="reloadView" type="redirectAction">user_list</result>
+		</action>
+		
+		<!-- 角色信息管理 -->
+		<action name="role_*" class="com.hanbang.oa.action.UserRolesAction" method="{1}">
+			<result name="listView">/apps/role/role_list.jsp</result>
+			<result name="reloadView" type="redirectAction">role_list</result>
+			<result name="formView">/apps/role/role_form.jsp</result>
+		</action>
+		
+		<!-- 部门信息管理 -->
+		<action name="dept_*" class="com.hanbang.oa.action.DeptAction" method="{1}">
+			<result name="listView">/apps/dept/dept_left.jsp</result>
+			<result name="formView">/apps/dept/dept_form.jsp</result>
+		</action>
+		
+		<!-- 禀议报告管理 -->
+		<action name="ringi_*" class="com.hanbang.oa.action.RingiShoAction" method="{1}">
+			<result name="listView">/apps/ringi/ringi_list_me.jsp</result>
+			<result name="tasksView">/apps/ringi/ringi_list.jsp</result>
+			<result name="pendingTaskView">/apps/ringi/ringi_pending_list.jsp</result>
+			<result name="rejectTaskView">/apps/ringi/ringi_reject_list.jsp</result>
+			<result name="formView">/apps/ringi/ringi_form.jsp</result>
+			<result name="formEditView">/apps/ringi/ringi_form_edit.jsp</result>
+			<result name="flowView">/apps/ringi/ringi_flow.jsp</result>
+			<result name="printView">/apps/ringi/ringi_print.jsp</result>
+			<result name="monitorView">/apps/ringi/ringi_monitor.jsp</result>
+			<result name="reloadView" type="redirectAction">ringi_pendingTasks</result>
+			<result name="rejectReloadView" type="redirectAction">ringi_rejectTasks</result>
+		    <result name="activityView" type="redirect">ringi_list.action?state=0</result>					
+		</action>
+		<!-- 禀议转发列表管理 -->
+		<action name="report_*" class="com.hanbang.oa.action.ReportMailAction" method="{1}">
+			<result name="listView">/apps/report/report_list.jsp</result>					
+			<result name="detailView">/apps/report/report_detail.jsp</result>					
+		</action>		
+		<!-- 禀议报告管理扩展 -->
+		<action name="ringiMe_*" class="com.hanbang.oa.action.RingiShoMeAction" method="{1}">
+			<result name="listView">/apps/ringi/ringime_list.jsp</result>
+		</action>
+		
+		<!-- 经费报销管理 -->
+		<action name="wipe_*" class="com.hanbang.oa.action.WipeAction" method="{1}">
+			<result name="listView">/apps/wipe/wipe_list.jsp</result>
+			<result name="formView">/apps/wipe/wipe_form.jsp</result>
+			<result name="weiShenPiList">/apps/wipe/weiShenPiWipe_list.jsp</result>
+			<result name="yiShenPiList">/apps/wipe/yiShenPiWipe_list.jsp</result>
+			<result name="view">/apps/wipe/view.jsp</result>
+            <result name="judge">/apps/wipe/wipe_judge.jsp</result>
+            <result name="edit">/apps/wipe/wipe_form_edit.jsp</result>
+            <result name="upd">/apps/wipe/wipe_edit_form.jsp</result>
+			<result name="drawImage" >/apps/wipe/trackProcess.jsp</result>
+			<result name="reapply" >/apps/wipe/reapply_wipe_item_list.jsp</result>	
+			<result name="print">/apps/wipe/wipe_print.jsp</result>
+			<result name="monitor" >/apps/wipe/wipe_monitor.jsp</result>
+			<result name="REJECTTASKVIEW" >/apps/wipe/wipe_reject_list.jsp</result>		
+			<result name="sendWipe">/apps/wipe/wipe_send.jsp</result>	
+			<result name="receiveWipe">/apps/wipe/wipe_receive_list.jsp</result>				
+			<result name="reloadView" type="redirectAction" >wipe_list</result>
+			<result name="activityView" type="redirect">wipe_list.action?state=0</result>		
+
+		</action>
+		
+				
+		<!-- 经费报销项目管理 -->
+		<action name="wipeItem_*" class="com.hanbang.oa.action.WipeItemAction" method="{1}">
+            <result name="addWipe">/apps/wipe/wipe_form.jsp</result>
+            <result name="reDel">/apps/wipe/wipe_edit_form.jsp</result>
+			<result name="listView">/apps/wipe/wipe_item_list.jsp</result>
+			<result name="formView">/apps/wipe/wipe_item_form.jsp</result>
+			<result name="reloadView" type="redirectAction">wipeItem_list</result>
+		</action>
+		
+		
+		<!-- 经费报销项目详细管理 -->
+		<action name="wipeItemDetail_*" class="com.hanbang.oa.action.WipeItemDetailAction" method="{1}">
+			<result name="reDel">/apps/wipe/wipe_edit_form.jsp</result>
+			<result name="addWipe">/apps/wipe/wipe_form.jsp</result>
+			<result name="listView">/apps/wipe/wipe_item_detail_list.jsp</result>
+			<result name="formView">/apps/wipe/wipe_item_detail_form.jsp</result>
+			<result name="reloadView" type="redirectAction">wipeItemDetail_list</result>
+		</action>
+		
+		
+		<!-- 人员选择组件 -->
+		<action name="userSel_*" class="com.hanbang.oa.action.cmp.UserSelAction" method="{1}">
+			<result name="mainView">/apps/cmp/user/user_main.jsp</result>
+			<result name="listView">/apps/cmp/user/user_list.jsp</result>
+		</action>
+		
+		<!-- 流程信息管理 -->		
+		<action name="flow_*" class="com.hanbang.oa.action.JbpmAction" method="{1}">
+			<result name="formView">/apps/flow/flow_form.jsp</result>
+			<result name="listView">/apps/flow/flow_list.jsp</result>
+			<result name="reloadView" type="redirectAction">flow_list</result>
+		</action>
+			
+	</package>
+</struts>

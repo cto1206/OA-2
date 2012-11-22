@@ -1,0 +1,225 @@
+/**********************************
+ 
+ 公共样式
+ 
+ ***********************************/
+/* 文本框高亮 */
+.input-highlighter {
+    border-color: #ffcc33;
+    border-top-style: outset;
+    border-left-style: outset;
+    border-bottom-style: inset;
+    border-right-style: inset;
+    border: 1px
+}
+/* 数字文本框高亮 */
+.input-digital-highlighter {
+    border-color: #ffcc33;
+    border: 1px;
+    border-top-style: outset;
+    border-left-style: outset;
+    border-bottom-style: inset;
+    border-right-style: inset;
+    text-align: right
+}
+/* 只读数字文本框高亮 */
+.input-digital-readonly-highlighter {
+    background: #cccccc;
+    border: 0;
+    text-align: right
+}
+/* 只读文本框高亮 */
+.input-readonly-highlighter {
+    background: #cccccc;
+    border: 0
+}
+/* 多行文本框高亮 */
+.input-textarea-highlighter {
+    border-color: #ffcc33;
+    border-top-style: outset;
+    border-left-style: outset;
+    border-bottom-style: inset;
+    border-right-style: inset;
+    border: 1px
+}
+/* 下拉框高亮 */
+.input-select-highlighter {
+    border-color: #ff8811;
+    background: #eecc44;
+    border: 1px
+}
+/* 复选框高亮 */
+.input-checkbox-highlighter {
+    border-color: #ffcc33;
+    background: #ffcc33;
+    border: 1px
+}
+/* 图片手型显示 */
+.pageImg, .data_buttonbar_text {
+    cursor: hand;
+    width: 15px;
+    height: 13px
+}
+
+.tabborder {
+    border-bottom: 1px solid #66b2f3;
+    border-left: 1px solid #66b2f3;
+    border-right: 1px solid #66b2f3;
+    padding: 8px 8px 8px 8px
+}
+
+.mainmenu {
+    font-size: 13px;
+    text-align: right
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: auto
+}
+
+A {
+    text-decoration: none;
+    color: #000000
+}
+
+A:hover {
+    color: #ff7200;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: none;
+    line-height: 14px
+}
+
+.digital {
+    text-align: right
+}
+
+.compactToolbar {
+    background-color: #F4F4F4;
+}
+
+.data_tab_tdl {
+    PADDING-LEFT: 4px;
+    FONT-size: 9pt;
+    color: #333333;
+    PADDING-TOP: 2px;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: left
+}
+
+.data_list_th {
+    BORDER-RIGHT: #8cb3e3 1px solid;
+    BORDER-TOP: #C3DAF9 1px solid;
+    BACKGROUND: url(../images/hbg.jpg) #f8dbbe;
+    FONT-size: 9pt;
+    BORDER-LEFT: #8cb3e3 1px solid;
+    COLOR: #333333;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #8cb3e3 1px solid;
+    WHITE-SPACE: nowrap;
+    TEXT-ALIGN: center
+}
+
+.data_list_td {
+    BORDER-RIGHT: #8cb3e3 1px solid;
+    BORDER-TOP: #8cb3e3 1px solid;
+    BACKGROUND: #ffffff;
+    FONT-size: 9pt;
+    BORDER-LEFT: #8cb3e3 1px solid;
+    COLOR: #333333;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: #8cb3e3 1px solid;
+    WHITE-SPACE: nowrap;
+    TEXT-ALIGN: center
+}
+
+.data_tab_tdr {
+    PADDING-RIGHT: 4px;
+    FONT-size: 9pt;
+    COLOR: #333333;
+    PADDING-TOP: 2px;
+    WHITE-SPACE: nowrap;
+    BACKGROUND-COLOR: #d1ebfe;
+    TEXT-ALIGN: right
+}
+
+.data_text_star {
+    COLOR: red
+}
+
+.even {
+    background-color: #dfe4e8;
+}
+
+.h1 {
+    MARGIN: 9px;
+    FONT-weight: bold;
+	font-size:14px;
+    COLOR: #f57d08;
+    TEXT-ALIGN: center
+}
+
+.submenu_subtd {
+    PADDING-LEFT: 5px;
+    BACKGROUND: #33587e;
+    FONT-size: 9pt;
+    CURSOR: hand;
+    COLOR: white;
+    HEIGHT: 24pt;
+    TEXT-ALIGN: left
+}
+
+.submenu {
+    PADDING-LEFT: 14px;
+    FONT-size: 9pt;
+    CURSOR: hand;
+    COLOR: #00457f;
+    HEIGHT: 18px;
+    TEXT-ALIGN: left
+}
+
+.submenu_up {
+    PADDING-LEFT: 14px;
+    FONT-size: 9pt;
+    CURSOR: hand;
+    COLOR: #bf6516;
+    HEIGHT: 18px;
+    TEXT-ALIGN: left
+}
+
+.statusBar {
+    background-color: #F4F4F4;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.tableHeader {
+    background: #F8DBBE;
+    font-size: 9pt;
+    line-height: 14px;
+    text-align: center;
+    padding-top: 5px;
+    color: #333333;
+    background-image: url(../images/hbg.jpg);
+    padding-right: 3px;
+    padding-left: 3px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0px;
+    border: 1px solid #8CB3E3;
+}
+
+td {
+    FONT-SIZE: 12px;
+}
+
+.tableRegion {
+    border: 1px solid silver;
+    border-color: #8CB3E3;
+    padding: 2px;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 11px;
+    margin-top: 7px;
+}

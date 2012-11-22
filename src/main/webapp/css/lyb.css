@@ -1,0 +1,156 @@
+/* Global Styles */
+
+body {
+	margin:0px;
+	}
+
+td {
+	font:12px Tahoma,宋体;
+	color:#333333;
+	}
+	
+a {
+	color: #cc0000;
+	text-decoration:none;
+	font-weight:bold;
+	}
+	
+a:hover {
+	color: #990000;
+	text-decoration:underline;
+	}
+input {
+border:#006699 solid 1px;
+width:90px;
+background:#FFFFFF;
+}
+INPUT {
+	FONT: 12px Tahoma; COLOR: #333333
+}
+BUTTON {
+	FONT: 12px Tahoma; COLOR: #333333
+}
+SELECT {
+	FONT: 12px Tahoma; COLOR: #333333
+}
+TEXTAREA {
+	FONT: 12px Tahoma; COLOR: #333333
+}
+FORM {
+	DISPLAY: inline
+}
+
+.input1{
+width:300px;
+}
+.input2{
+width:150px;
+}
+.submit1{
+width:50px; 
+border:#CCCCCC solid 1px; 
+height:30px; 
+background:#FFFFFF
+}
+	
+/* ID Styles */
+
+#navigation a {
+	font:12px Tahoma,宋体;
+	color: #ffffff;
+	text-decoration:none;
+	letter-spacing:.1em;
+	}
+	
+#navigation a:hover {
+	color: #99CCFF;
+	}
+
+#padding {
+	padding:20px 5px 20px 5px;
+	}
+	
+#calendar td {
+	border: 1px solid rgb(0,51,153);
+	}
+	
+#noborder td {
+	border: 0px;
+	}
+	
+#weekdays th {
+	font:12px Tahoma,宋体;
+	color: #ffffff;
+	font-weight:bold;
+	border: 0px;
+	padding:2px;
+	}
+
+#calheader td {
+	font-weight:bold;
+	}
+
+/* Class Styles */
+
+.logo {
+	font:45px times new roman;
+	color: #0E177C;
+	letter-spacing:.3em;
+	font-weight:bold;
+	line-height:22px;
+	}
+
+.tagline {
+	font:12px times new roman;
+	color: #CC3300;
+	letter-spacing:.2em;
+	}
+
+.smallText {
+	font:12px times new roman;
+	color: #CC3300;
+	line-height:18px;
+	}
+
+.pageHeader {
+	font:30px times new roman;
+	color: #CC3300;
+	letter-spacing:.1em;
+	line-height:38px;
+	}
+	
+.bodyText {
+	font:12px Tahoma,宋体;
+	color:#333333;
+	line-height:24px;
+	}
+	
+.pageName {
+	font:20px georgia;
+	color: #CC3300;
+	letter-spacing:.1em;
+	line-height:26px;
+	}
+	
+.subHeader {
+	font:14px times new roman;
+	color: #003399;
+	font-weight:bold;
+	line-height:20px;
+	letter-spacing:.1em;
+	}
+
+.ttlHeader {
+	font:24px times new roman;
+	color: #000000;
+	font-weight:bold;
+	line-height:20px;
+	letter-spacing:.1em;
+	}
+	
+.navText {
+	font:12px Tahoma,宋体;
+	color: #333300;
+	letter-spacing:.1em;
+	}
+	

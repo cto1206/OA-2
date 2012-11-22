@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process name="ringi" xmlns="http://jbpm.org/4.0/jpdl">
+   <start g="22,254,48,48" name="开始">
+      <transition g="-14,-27" name="起草" to="填写禀议书"/>
+   </start>
+   <task assignee="#{startUser}" g="136,250,121,53" name="填写禀议书">
+      <transition g="197,54:-52,-11" name="一级审查" to="部门主管"/>
+      <transition g="-39,-7" name="取消" to="cancel"/>
+   </task>
+   <task assignee="#{flowUser1}" g="489,27,120,54" name="部门主管">
+      <transition g="10,-6" name="进入二级决裁" to="项目经理"/>
+      <transition g="491,105;227,105;227,189;204,239:130,-64" name="主管驳回" to="填写禀议书"/>
+   </task>
+   <task assignee="#{flowUser2}" g="490,135,121,52" name="项目经理">
+      <transition g="275,161:81,-18" name="项目经理驳回" to="填写禀议书"/>
+      <transition g="842,161:14,145" name="二级决裁通过" to="决裁通过"/>
+      <transition g="12,-10" name="进入三级合议" to="三级合议判断"/>
+   </task>
+   <task assignee="#{flowUser5}" g="501,728,115,53" name="董事长">
+      <transition g="-66,-18" name="最终决裁通过" to="决裁通过"/>
+      <transition g="191,752:-84,-111" name="最终决裁驳回" to="填写禀议书"/>
+   </task>
+   <end g="816,734,48,48" name="决裁通过"/>
+   <task assignee="#{flowUserCG}" g="646,332,124,55" name="采购主管">
+      <transition g="707,468;256,468;255,377:47,-23" name="采购主管驳回" to="填写禀议书"/>
+      <transition g="-68,-40" name="采购主管通过" to="四级合议"/>
+   </task>
+   <task assignee="#{flowUserCW}" g="335,335,121,54" name="财务主管">
+      <transition g="-44,16" name="财务主管驳回" to="填写禀议书"/>
+      <transition g="-30,-70" name="财务主管通过" to="四级合议"/>
+   </task>
+   <decision expr="#{stockOrFinance}" g="528,241,48,48" name="三级合议判断">
+      <transition g="397,264:-46,18" name="经费类" to="财务主管"/>
+      <transition g="707,266:17,32" name="采购类" to="采购主管"/>
+   </decision>
+   <task assignee="#{flowUser4}" g="496,560,125,52" name="四级合议">
+      <transition g="13,-10" name="最终决裁" to="董事长"/>
+      <transition g="-20,-35" name="四级合议通过" to="决裁通过"/>
+      <transition g="235,586;235,384:67,78" name="四级合议驳回" to="填写禀议书"/>
+   </task>
+   <end-cancel g="21,390,48,48" name="cancel"/>
+</process>

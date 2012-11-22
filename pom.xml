@@ -1,0 +1,319 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hanbang</groupId>
+	<artifactId>OA</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Struts 2 Starter</name>
+	<url>http://www.myComp.com</url>
+	<description>Struts 2 Starter</description>
+
+	<repositories>
+		<repository>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>Codehaus Snapshots</id>
+			<url>http://snapshots.repository.codehaus.org/</url>
+		</repository>
+		<repository>
+			<id>ibiblio</id>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</repository>
+		<repository>
+			<id>datanucleus</id>
+			<url>http://www.datanucleus.org/downloads/maven2/</url>
+		</repository>
+		<repository>
+			<id>gwt-maven</id>
+			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.dev.java.net</id>
+			<url>http://download.java.net/maven/2/</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>apache.snapshots</id>
+			<name>Apache Snapshot Repository</name>
+			<url>http://people.apache.org/repo/m2-snapshot-repository</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>Codehaus Snapshots</id>
+			<url>http://snapshots.repository.codehaus.org/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</pluginRepository>
+
+		<pluginRepository>
+			<id>ibiblio</id>
+			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>datanucleus</id>
+			<url>http://www.datanucleus.org/downloads/maven2/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>gwt-maven</id>
+			<url>http://gwt-maven.googlecode.com/svn/trunk/mavenrepo/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>maven2-repository.dev.java.net</id>
+			<url>http://download.java.net/maven/2/</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>jboss</id>
+			<url>http://repository.jboss.com/maven2</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+
+	<dependencies>
+		<!-- Junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- Servlet & Jsp -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- Jakarta Commons -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.8.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
+		<!-- Ecside -->
+		<dependency>
+			<groupId>org.ecside</groupId>
+			<artifactId>ecside</artifactId>
+			<version>2.0_RC1</version>
+		</dependency>
+
+		<!-- Struts 2,Spring -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20090211</version>
+		</dependency>
+
+		<!-- Spring 2 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>2.5.6</version>
+		</dependency>
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-log4j12</artifactId> 
+			<version>1.5.8</version> </dependency> <dependency> <groupId>org.springside</groupId> 
+			<artifactId>springside</artifactId> <version>3.1.3</version> </dependency> -->
+
+
+		<!-- Jbpm4 -->
+		<dependency>
+			<groupId>org.jbpm.jbpm4</groupId>
+			<artifactId>jbpm-jpdl</artifactId>
+			<version>4.0</version>
+			<exclusions>
+				<exclusion>
+					<groupId>jboss</groupId>
+					<artifactId>jboss-j2ee</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jbpm.jbpm4</groupId>
+					<artifactId>jbpm-test-base</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>juel</groupId>
+					<artifactId>juel</artifactId>
+				</exclusion>
+				<!-- <exclusion> <groupId>org.slf4j</groupId> <artifactId>slf4j-jdk14</artifactId> 
+					</exclusion> -->
+				<exclusion>
+					<groupId>org.jboss.identity.idm</groupId>
+					<artifactId>idm-core</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jboss.identity.idm</groupId>
+					<artifactId>idm-hibernate</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.hibernate</groupId>
+					<artifactId>hibernate-entitymanager</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-classic</artifactId> 
+			<version>0.9.15</version> </dependency> <dependency> <groupId>javax.mail</groupId> 
+			<artifactId>mail</artifactId> <version>1.4.1</version> </dependency> -->
+
+		<!-- Hibernate3 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-annotations</artifactId>
+			<version>3.3.0.ga</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-commons-annotations</artifactId>
+			<version>3.3.0.ga</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate</artifactId>
+			<version>3.2.7.ga</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>proxool</groupId>
+			<artifactId>proxool</artifactId>
+			<version>0.8.3</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>WebReport</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>oa</warName>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
+				<version>6.1.5</version>
+				<configuration>
+					<scanIntervalSeconds>10</scanIntervalSeconds>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

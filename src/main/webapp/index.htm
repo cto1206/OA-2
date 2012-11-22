@@ -1,0 +1,47 @@
+<html>
+<head>
+	<META HTTP-EQUIV="Content-Type" CONTENT="text/html;CHARSET=UTF-8">
+</head>
+<BODY>
+<script>
+ function killerr()
+ {
+   alert("可能窗口被拦截\n请允许该站点的弹出窗口");
+   return true;
+ }
+
+ window.onerror=killerr;
+ function openIndex(url)
+ {
+    var newwin;
+    var ww=screen.availWidth;
+    var hh=screen.availHeight - 30;
+    var top=0;
+    var left=0;
+	var index="mnewIndex2010"+Math.floor(Math.random()*10000000);
+	newwin=window.open(url,index,"toolbar=0;location=0,status=no,resizable=1,scrollbars=0,menubar=0,width="+ww+"px,height="+hh+"px,top="+top+",left="+left);
+    newwin.focus();
+ }
+
+ var urlMain="login.jsp"
+ if(window.opener==undefined)
+ {
+    try
+    {
+     window.opener = null;
+     window.open('','_self');
+	 window.close();
+	 openIndex(urlMain);
+	}
+	catch(e)
+	{
+	  openIndex(urlMain);
+	} 
+ }
+ else
+ {
+   location.replace(urlMain);
+ }
+</script>
+</BODY>
+</html>
