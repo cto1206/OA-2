@@ -1,8 +1,12 @@
 package com.hanbang.oa.action;
 
 import javax.annotation.Resource;
+
+import org.apache.commons.lang.StringUtils;
+
 import com.hanbang.core.action.CRUDActionSupport;
 import com.hanbang.core.dao.support.Page;
+import com.hanbang.core.utils.ActionUtil;
 import com.hanbang.oa.entity.security.RingiSho;
 import com.hanbang.oa.service.RingiShoService;
 
@@ -24,6 +28,8 @@ public class RingiShoMeAction extends CRUDActionSupport<RingiSho>
 	@Resource
 	private RingiShoService ringiShoService;
 
+	private String state;
+
 
 
 	@Override
@@ -43,7 +49,10 @@ public class RingiShoMeAction extends CRUDActionSupport<RingiSho>
 	@Override
 	protected void list(Page<RingiSho> p) throws Exception
 	{
-		ringiShoService.getCompleteList(p);
+		if (StringUtils.isNotEmpty(this.state))
+			this.ringiShoService.getAllList(p, ActionUtil.getCurLoginInfo().getId());
+		else
+			this.ringiShoService.getCompleteList(p, ActionUtil.getCurLoginInfo().getId());
 	}
 
 

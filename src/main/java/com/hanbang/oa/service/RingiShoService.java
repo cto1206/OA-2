@@ -476,14 +476,20 @@ public class RingiShoService extends EntityService<RingiSho, Long>
 	}
 
 
+	public void getAllList(Page<RingiSho> page, Long uId)
+	{
+		this.ringiShoDao.getAllList(page, uId);
+	}
+
+
 	/**
 	 * 查询所有完成的禀议书
 	 * 
 	 * @param page
 	 */
-	public void getCompleteList(Page<RingiSho> page)
+	public void getCompleteList(Page<RingiSho> page, Long uId)
 	{
-		ringiShoDao.getCompleteList(page);
+		this.ringiShoDao.getCompleteList(page, uId);
 	}
 
 }
