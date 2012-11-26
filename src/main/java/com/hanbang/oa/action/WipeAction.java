@@ -655,11 +655,11 @@ public class WipeAction extends CRUDActionSupport<Wipe>
 		if (wipe != null && wipe.getId() != null)
 		{
 			wipe = wipeManager.get(wipe.getId());
-			judgeList = judgeManager.selJudgeByCode(wipe.getId());
-			wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
-			wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
-			wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
-			wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
+//			judgeList = judgeManager.selJudgeByCode(wipe.getId());
+//			wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
+//			wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
+//			wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
+//			wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
 			wipe = wipeManager.confirm(taskId, topJudge, wipe);
 		}
 		return weiShenPiList();
@@ -671,11 +671,11 @@ public class WipeAction extends CRUDActionSupport<Wipe>
 	{
 		wipe = wipeManager.get(wipe.getId());
 		wipe.setState((short) 3);
-		judgeList = judgeManager.selJudgeByCode(wipe.getId());
-		wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
-		wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
-		wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
-		wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
+//		judgeList = judgeManager.selJudgeByCode(wipe.getId());
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
 		wipeManager.dissent(taskId);
 		return weiShenPiList();
 	}
@@ -686,11 +686,11 @@ public class WipeAction extends CRUDActionSupport<Wipe>
 	{
 		wipe = wipeManager.get(wipe.getId());
 		wipe.setState((short) 2);
-		judgeList = judgeManager.selJudgeByCode(wipe.getId());
-		wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
-		wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
-		wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
-		wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
+//		judgeList = judgeManager.selJudgeByCode(wipe.getId());
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setJudgeDate(sf.format(new Date()));
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setUser(ActionUtil.getCurLoginInfo());
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setWipe(wipe);
+//		wipe.getJudgeSet().get(judgeList.size() - 1).setjDirect(dire);
 		wipeManager.reject(taskId);
 		return weiShenPiList();
 	}
